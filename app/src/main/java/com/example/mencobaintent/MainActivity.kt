@@ -20,9 +20,11 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalView
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.core.content.ContextCompat
+import androidx.core.content.ContextCompat.startActivity
 import com.example.mencobaintent.ui.theme.MencobaIntentTheme
 
 class MainActivity : ComponentActivity() {
@@ -59,11 +61,12 @@ fun Greeting(modifier: Modifier = Modifier) {
         Box(modifier = Modifier.fillMaxWidth()) {
             Image(painter = painterResource(id = R.drawable.banner), contentDescription = null, modifier = Modifier.fillMaxWidth())
         }
+        Text(text = "Senja Merah", modifier = modifier.padding(16.dp), fontWeight = FontWeight.Bold)
         Text(text = "Di tepian pantai yang tenang dan indah,\n" +
                 "Wanita berambut merah, cahaya senja menerangi wajahnya.\n" +
                 "Matanya memancarkan pesona, merenung dalam kejernihan,\n" +
                 "Seakan menyaksikan matahari merunduk dalam perpisahan.\n" +
-                "\n", modifier = modifier.padding(16.dp))
+                "\n", modifier = modifier.padding(16.dp).padding(bottom = 2.dp))
         Box(modifier = Modifier
             .fillMaxWidth()
             .padding(16.dp),
@@ -71,12 +74,13 @@ fun Greeting(modifier: Modifier = Modifier) {
         ) {
             Row {
                 Button(onClick = {
-                    ContextCompat.startActivity(context, intent, null)
+                    // ContextCompat.
+                    startActivity(context, intent, null)
                 }, modifier = Modifier.padding(end = 8.dp)) {
                     Text(text = "Detail")
                 }
                 Button(onClick = {
-                    ContextCompat.startActivity(contextMap, intentMap, null)
+                    startActivity(contextMap, intentMap, null)
                 }) {
                     Text(text = "Open Maps")
                 }
